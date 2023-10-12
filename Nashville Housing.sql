@@ -1,10 +1,3 @@
-/*
-
-Cleaning Data in SQL Queries
-
-*/
-
-
 Select *
 From PortfolioProject.dbo.NashvilleHousing
 
@@ -19,6 +12,7 @@ From PortfolioProject.dbo.NashvilleHousing
 
 Update NashvilleHousing
 SET SaleDate = CONVERT(Date,SaleDate)
+
 
  --------------------------------------------------------------------------------------------------------------------------
 
@@ -46,7 +40,6 @@ JOIN PortfolioProject.dbo.NashvilleHousing b
 	on a.ParcelID = b.ParcelID
 	AND a.[UniqueID ] <> b.[UniqueID ]
 Where a.PropertyAddress is null
-
 
 
 
@@ -85,7 +78,6 @@ SET PropertySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddres
 
 Select *
 From PortfolioProject.dbo.NashvilleHousing
-
 
 
 
@@ -130,6 +122,7 @@ From PortfolioProject.dbo.NashvilleHousing
 
 
 
+
 --------------------------------------------------------------------------------------------------------------------------
 
 
@@ -157,6 +150,7 @@ SET SoldAsVacant = CASE When SoldAsVacant = 'Y' THEN 'Yes'
 	   When SoldAsVacant = 'N' THEN 'No'
 	   ELSE SoldAsVacant
 	   END
+
 
 
 
@@ -205,5 +199,4 @@ From PortfolioProject.dbo.NashvilleHousing
 
 ALTER TABLE PortfolioProject.dbo.NashvilleHousing
 DROP COLUMN OwnerAddress, TaxDistrict, PropertyAddress, SaleDate
-
 
